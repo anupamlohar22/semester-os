@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import PageLayout from "../components/PageLayout";
 import { getAssignments } from "../services/assignmentService";
 import type { Assignment } from "../types/assignment";
 
@@ -11,9 +12,7 @@ function AssignmentsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold">Assignments</h1>
-
+    <PageLayout title="Assignments">
       <div className="mt-6 space-y-4">
         {assignments.map((assignment) => (
           <div
@@ -29,7 +28,7 @@ function AssignmentsPage() {
           </div>
         ))}
       </div>
-    </div>
+    </PageLayout>
   );
 }
 

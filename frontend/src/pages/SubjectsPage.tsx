@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import PageLayout from "../components/PageLayout";
 import { getSubjects } from "../services/subjectService";
 import type { Subject } from "../types/subject";
 
@@ -11,9 +12,7 @@ function SubjectsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold">Subjects</h1>
-
+    <PageLayout title="Subjects">
       <div className="mt-6 space-y-4">
         {subjects.map((subject) => (
           <div
@@ -28,7 +27,7 @@ function SubjectsPage() {
           </div>
         ))}
       </div>
-    </div>
+    </PageLayout>
   );
 }
 

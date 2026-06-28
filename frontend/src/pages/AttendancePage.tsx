@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import PageLayout from "../components/PageLayout";
 import { getAttendance } from "../services/attendanceService";
 import type { Attendance } from "../types/attendance";
 
@@ -11,9 +12,7 @@ function AttendancePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold">Attendance</h1>
-
+    <PageLayout title="Attendance">
       <div className="mt-6 space-y-4">
         {attendance.map((item) => (
           <div
@@ -34,7 +33,7 @@ function AttendancePage() {
           </div>
         ))}
       </div>
-    </div>
+    </PageLayout>
   );
 }
 

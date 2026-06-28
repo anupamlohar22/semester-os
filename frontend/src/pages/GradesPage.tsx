@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import PageLayout from "../components/PageLayout";
 import { getGrades } from "../services/gradeService";
 import type { Grade } from "../types/grade";
 
@@ -11,9 +12,7 @@ function GradesPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold">Grades</h1>
-
+    <PageLayout title="Grades">
       <div className="mt-6 space-y-4">
         {grades.map((grade) => (
           <div
@@ -30,7 +29,7 @@ function GradesPage() {
           </div>
         ))}
       </div>
-    </div>
+    </PageLayout>
   );
 }
 
