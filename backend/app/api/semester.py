@@ -23,3 +23,7 @@ def create_semester(
     db.refresh(semester)
 
     return semester
+
+@router.get("/", response_model=list[SemesterResponse])
+def get_semesters(db: Session = Depends(get_db)):
+    return db.query(Semester).all()

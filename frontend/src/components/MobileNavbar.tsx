@@ -5,6 +5,7 @@ function MobileNavbar() {
 
   const links = [
     { to: "/", icon: "🏠" },
+    { to: "/semesters", icon: "🗓️" },
     { to: "/subjects", icon: "📚" },
     { to: "/assignments", icon: "📝" },
     { to: "/grades", icon: "📊" },

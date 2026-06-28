@@ -5,6 +5,7 @@ function DesktopSidebar() {
 
   const links = [
     { to: "/", label: "Dashboard" },
+    { to: "/semesters", label: "Semesters" },
     { to: "/subjects", label: "Subjects" },
     { to: "/assignments", label: "Assignments" },
     { to: "/exams", label: "Exams" },
