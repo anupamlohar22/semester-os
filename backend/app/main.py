@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from app.api.auth import router as auth_router
+from app.models.user import User
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.attendance import router as attendance_router
 from app.models.attendance import Attendance
@@ -35,6 +37,7 @@ app.include_router(assignment_router)
 app.include_router(exam_router)
 app.include_router(grade_router)
 app.include_router(attendance_router)
+app.include_router(auth_router)
 
 @app.get("/")
 def root():
