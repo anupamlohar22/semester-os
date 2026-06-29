@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import EmptyState from "../components/EmptyState";
 import PageLayout from "../components/PageLayout";
 import { getSubjects } from "../services/subjectService";
 import type { Subject } from "../types/subject";
@@ -14,19 +15,23 @@ function SubjectsPage() {
   return (
     <PageLayout title="Subjects">
       <div className="mt-6 space-y-4">
-        {subjects.map((subject) => (
-          <div
-            key={subject.id}
-            className="rounded-xl bg-white p-4 shadow"
-          >
-            <h2 className="text-xl font-semibold">
-              {subject.name}
-            </h2>
+  {subjects.length === 0 ? (
+    <EmptyState message="No subjects found." />
+  ) : (
+    subjects.map((subject) => (
+      <div
+        key={subject.id}
+        className="rounded-xl bg-white p-4 shadow"
+      >
+        <h2 className="text-xl font-semibold">
+          {subject.name}
+        </h2>
 
-            <p>Credits: {subject.credits}</p>
-          </div>
-        ))}
+        <p>Credits: {subject.credits}</p>
       </div>
+    ))
+  )}
+</div>
     </PageLayout>
   );
 }
