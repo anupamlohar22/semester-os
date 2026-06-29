@@ -1,4 +1,5 @@
 import PageLayout from "../components/PageLayout";
+import QuickActions from "../components/QuickActions";
 import StatCard from "../components/StatCard";
 import UpcomingCard from "../components/UpcomingCard";
 import SemesterProgress from "../components/SemesterProgress";
@@ -8,6 +9,7 @@ function DashboardPage() {
   return (
     <PageLayout title="SemesterOS">
       <FeatureBanner />
+      <QuickActions />
       <SemesterProgress />
 
       <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
