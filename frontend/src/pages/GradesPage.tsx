@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ErrorState from "../components/ErrorState";
 import LoadingSpinner from "../components/LoadingSpinner";
 import EmptyState from "../components/EmptyState";
 import PageLayout from "../components/PageLayout";
@@ -6,20 +7,30 @@ import { getGrades } from "../services/gradeService";
 import type { Grade } from "../types/grade";
 
 function GradesPage() {
-  const [grades, setGrades] = useState<Grade[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-  getGrades().then((data) => {
-    setGrades(data);
-    setLoading(false);
-  });
+  getGrades()
+    .then((data) => {
+      setGrades(data);
+    })
+    .catch(() => {
+      setError("Failed to load grades.");
+    })
+    .finally(() => {
+      setLoading(false);
+    });
 }, []);
 
   return (
     <PageLayout title="Grades">
       <div className="mt-6 space-y-4">
 {loading ? (
+  <LoadingSpinner />
+) : error ? (
+  <ErrorState message={error} />
+) : grades.length === 0 ? (
   <LoadingSpinner />
 ) : grades.length === 0 ? (
     <EmptyState message="No grades found." />

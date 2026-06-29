@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ErrorState from "../components/ErrorState";
 import LoadingSpinner from "../components/LoadingSpinner";
 import EmptyState from "../components/EmptyState";
 import PageLayout from "../components/PageLayout";
@@ -8,18 +9,29 @@ import type { Assignment } from "../types/assignment";
 function AssignmentsPage() {
   const [assignments, setAssignments] = useState<Assignment[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-  getAssignments().then((data) => {
-    setAssignments(data);
-    setLoading(false);
-  });
+  getAssignments()
+    .then((data) => {
+      setAssignments(data);
+    })
+    .catch(() => {
+      setError("Failed to load assignments.");
+    })
+    .finally(() => {
+      setLoading(false);
+    });
 }, []);
 
   return (
     <PageLayout title="Assignments">
      <div className="mt-6 space-y-4">
   {loading ? (
+  <LoadingSpinner />
+) : error ? (
+  <ErrorState message={error} />
+) : assignments.length === 0 ? (
   <LoadingSpinner />
 ) : assignments.length === 0 ? (
     <EmptyState message="No assignments found." />
