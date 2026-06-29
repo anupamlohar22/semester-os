@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import LoadingSpinner from "../components/LoadingSpinner";
 import EmptyState from "../components/EmptyState";
 import PageLayout from "../components/PageLayout";
 import { getSubjects } from "../services/subjectService";
@@ -7,15 +7,20 @@ import type { Subject } from "../types/subject";
 
 function SubjectsPage() {
   const [subjects, setSubjects] = useState<Subject[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getSubjects().then(setSubjects);
-  }, []);
-
+  getSubjects().then((data) => {
+    setSubjects(data);
+    setLoading(false);
+  });
+}, []);
   return (
     <PageLayout title="Subjects">
       <div className="mt-6 space-y-4">
-  {subjects.length === 0 ? (
+ {loading ? (
+  <LoadingSpinner />
+) : subjects.length === 0 ? (
     <EmptyState message="No subjects found." />
   ) : (
     subjects.map((subject) => (
