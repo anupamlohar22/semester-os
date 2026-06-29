@@ -11,6 +11,7 @@ function DesktopSidebar() {
     { to: "/exams", label: "Exams" },
     { to: "/grades", label: "Grades" },
     { to: "/attendance", label: "Attendance" },
+    { to: "/calendar", label: "Calendar" },
   ];
 
   return (

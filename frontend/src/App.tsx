@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import CalendarPage from "./pages/CalendarPage";
 import AttendancePage from "./pages/AttendancePage";
 import GradesPage from "./pages/GradesPage";
 import ExamsPage from "./pages/ExamsPage";
@@ -18,6 +20,7 @@ function App() {
         <Route path="/grades" element={<GradesPage />} />
         <Route path="/attendance" element={<AttendancePage />} />
         <Route path="/semesters" element={<SemestersPage />} />
+        <Route path="/calendar" element={<CalendarPage />} />
       </Routes>
     </BrowserRouter>
   );

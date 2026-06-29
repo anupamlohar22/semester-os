@@ -10,6 +10,7 @@ function MobileNavbar() {
     { to: "/assignments", icon: "📝" },
     { to: "/grades", icon: "📊" },
     { to: "/attendance", icon: "✅" },
+    { to: "/calendar", icon: "📅" },
   ];
 
   return (
