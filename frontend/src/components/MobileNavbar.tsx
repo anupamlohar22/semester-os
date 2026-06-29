@@ -11,6 +11,7 @@ function MobileNavbar() {
     { to: "/grades", icon: "📊" },
     { to: "/attendance", icon: "✅" },
     { to: "/calendar", icon: "📅" },
+    { to: "/settings", icon: "⚙️" },
   ];
 
   return (
