@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import PageHeader from "./PageHeader";
 import DesktopSidebar from "./DesktopSidebar";
 import MobileNavbar from "./MobileNavbar";
 
@@ -14,7 +15,7 @@ function PageLayout({ title, children }: Props) {
       <DesktopSidebar />
 
       <div className="min-h-screen flex-1 bg-gray-100 p-4 pb-24">
-        <h1 className="text-3xl font-bold">{title}</h1>
+        <PageHeader title={title} />
 
         {children}
 
