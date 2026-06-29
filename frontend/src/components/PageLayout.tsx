@@ -14,7 +14,7 @@ function PageLayout({ title, children }: Props) {
     <div className="flex">
       <DesktopSidebar />
 
-      <div className="min-h-screen flex-1 bg-gray-100 p-4 pb-24">
+    <div className="min-h-screen flex-1 bg-gray-100 p-4 pb-24 dark:bg-gray-900">
         <Topbar />
 
 <PageHeader title={title} />
