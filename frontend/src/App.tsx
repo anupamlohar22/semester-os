@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 import CalendarPage from "./pages/CalendarPage";
 import AttendancePage from "./pages/AttendancePage";
 import GradesPage from "./pages/GradesPage";
@@ -23,6 +25,15 @@ function App() {
         <Route path="/attendance" element={<AttendancePage />} />
         <Route path="/semesters" element={<SemestersPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
+        <Route
+  path="/login"
+  element={<LoginPage />}
+/>
+
+<Route
+  path="/signup"
+  element={<SignupPage />}
+/>
       </Routes>
     </BrowserRouter>
   );
